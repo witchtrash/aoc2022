@@ -6,10 +6,10 @@ from typing import cast
 
 import typer
 
-from aoc.solver import Solver
+from src.solver import Solver
 
 app = typer.Typer(
-    help="Advent of Code 2021",
+    help="Advent of Code 2022",
     add_completion=False,
 )
 
@@ -30,7 +30,7 @@ def solve(
     """
     try:
         solution = cast(
-            Solver, importlib.import_module(f"aoc.solutions.day{day}.{part}")
+            Solver, importlib.import_module(f"src.solutions.day{day}.{part}")
         )
 
         timer_start = perf_counter_ns()
@@ -60,6 +60,7 @@ def solve(
                 bold=True,
             )
         )
+
 
 
 if __name__ == "__main__":

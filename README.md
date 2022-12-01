@@ -1,11 +1,12 @@
 # aoc2021
 
-Advent of Code 2021
+Advent of Code 2022
 
 ## Setup
 
-Make sure you have poetry and Python 3.10 installed. I recommend using something like pyenv to manage your Python versions.
+Make sure you have poetry >=1.2.0 and Python 3.11 installed. I recommend using something like pyenv to manage your Python versions. pyenv can automatically pick up and install the version defined in `.python-version` with `pyenv install`. 
 
+0. (Optionally): Install `Python 3.11.0a1` with `pyenv install`.
 1. Spawn a new shell with `poetry shell`
 2. Install dependencies with `poetry install`
 
