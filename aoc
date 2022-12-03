@@ -1,6 +1,9 @@
 #!python
 import importlib
 from enum import Enum
+from os import mkdir
+from pathlib import Path
+from shutil import copy
 from time import perf_counter_ns
 from typing import cast
 
@@ -61,6 +64,41 @@ def solve(
             )
         )
 
+
+@app.command()
+def scaffold(day: int = typer.Option(..., help="Day")) -> None:
+    """
+    Scaffold a new solution
+    """
+
+    day_path = f"day{day}"
+    solutions_path = Path("src") / "solutions" / day_path
+    inputs_path = Path("src") / "inputs" / day_path
+    template_path = Path("src") / "template.py"
+
+    try:
+        mkdir(solutions_path)
+        mkdir(inputs_path)
+    except FileExistsError:
+        typer.echo(
+            typer.style(
+                f"Directories for day #{day} already exist.",
+                fg=typer.colors.RED,
+                bold=True,
+            )
+        )
+
+        return
+
+    copy(template_path, solutions_path / "a.py")
+    copy(template_path, solutions_path / "b.py")
+
+    (inputs_path / "a.txt").touch()
+    (inputs_path / "b.txt").touch()
+    (inputs_path / "a.test.txt").touch()
+    (inputs_path / "b.test.txt").touch()
+
+    typer.echo(typer.style(f"Day {day} scaffolded.", fg=typer.colors.GREEN, bold=True))
 
 
 if __name__ == "__main__":

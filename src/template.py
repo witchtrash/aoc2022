@@ -1,4 +1,4 @@
-from aoc.lib.util import Input, get_problem_input
+from src.lib.util import Input, get_problem_input
 
 problem_input: Input = get_problem_input()
 test_input: Input = get_problem_input(test=True)
