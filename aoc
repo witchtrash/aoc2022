@@ -33,7 +33,7 @@ def solve(
     """
     try:
         solution = cast(
-            Solver, importlib.import_module(f"src.solutions.day{day}.{part}")
+            Solver, importlib.import_module(f"src.solutions.day{day}.{part.value}")
         )
 
         timer_start = perf_counter_ns()

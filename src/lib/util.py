@@ -36,7 +36,7 @@ def get_problem_input(test: bool = False) -> Input:
     part = Path(caller_file).stem.split(".")[0]
     day = Path(caller_file).parent.stem
     input_path = (
-        Path(caller_file).parent.parent
+        Path(caller_file).parent.parent.parent
         / "inputs"
         / day
         / f"{part}{'.test' if test else ''}.txt"
